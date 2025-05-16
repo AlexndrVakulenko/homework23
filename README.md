@@ -3,15 +3,15 @@
 
 1. Настроить VPN между двумя ВМ в tun/tap режимах, замерить скорость в туннелях, сделать вывод об отличающихся показателях
 
-        Vagrantfile + vpn.yml
+   Vagrantfile + vpn.yml
 
-               - Измерение скорости в режме TAP
+    - Измерение скорости в режме TAP
 
 ![Image alt](https://github.com/AlexndrVakulenko/homework23/blob/main/01_Server_%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D1%8C%20%D0%B2%20%D1%82%D1%83%D0%BD%D0%BD%D0%B5%D0%BB%D0%B5_%D1%80%D0%B5%D0%B6%D0%B8%D0%BC_TAP.png)
 
 ![Image alt](https://github.com/AlexndrVakulenko/homework23/blob/main/03_Client_%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D1%8C%20%D0%B2%20%D1%82%D1%83%D0%BD%D0%BD%D0%B5%D0%BB%D0%B5_%D1%80%D0%B5%D0%B6%D0%B8%D0%BC_TAP.png)
 
-               - Измерение скорости в режме TUN
+    - Измерение скорости в режме TUN
 
 ![Image alt](https://github.com/AlexndrVakulenko/homework23/blob/main/02_Server_%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D1%8C%20%D0%B2%20%D1%82%D1%83%D0%BD%D0%BD%D0%B5%D0%BB%D0%B5_%D1%80%D0%B5%D0%B6%D0%B8%D0%BC_TUN.png)
 
