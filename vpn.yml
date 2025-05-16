@@ -1,0 +1,95 @@
+---
+- name: Creating VPN
+
+  hosts: all
+  become: true
+
+  tasks:
+
+  - name: Install soft
+    apt:
+      name:
+        - openvpn
+        - iperf3
+        - selinux-utils
+        - mc
+      state: present
+      update_cache: true
+
+#- name: disable SElinux now
+#    shell: sudo setenforce 0
+
+- name: Configure server
+
+  hosts: server
+  become: true
+
+  tasks:
+   
+    - name: create key
+      shell: openvpn --genkey secret /etc/openvpn/static.key
+
+    - name: Copy key to ansible host
+      fetch:
+        src: /etc/openvpn/static.key
+        dest: ./VPN_files/1/
+        flat: yes
+   
+    - name: Copy server.conf
+      template: 
+        src: "VPN_files/1/1server.conf"
+        dest: /etc/openvpn/server.conf
+        owner: root
+        group: root
+        mode: 0644
+    
+    - name: Copy openvpn@.service
+      template: 
+        src: "VPN_files/1/1openvpn@.service"
+        dest: /etc/systemd/system/openvpn@.service
+        owner: root
+        group: root
+        mode: 0644
+    
+    - name: Start openvpn
+      shell:  sudo  systemctl start openvpn@server
+
+    - name: Enable openvpn 
+      shell: sudo systemctl enable openvpn@server
+
+- name: Configure client
+
+  hosts: client
+  become: true
+
+  tasks:
+       
+    - name: Copy server.conf
+      template: 
+        src: "VPN_files/1/2server.conf"
+        dest: /etc/openvpn/server.conf
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Copy static.key
+      template: 
+        src: "VPN_files/1/static.key"
+        dest: /etc/openvpn/
+        owner: root
+        group: root
+        mode: 0644
+    
+    - name: Copy openvpn@.service
+      template: 
+        src: "VPN_files/1/2openvpn@.service"
+        dest: /etc/systemd/system/openvpn@.service
+        owner: root
+        group: root
+        mode: 0644
+    
+    - name: Start openvpn
+      shell:  sudo  systemctl start openvpn@server
+
+    - name: Enable openvpn 
+      shell: sudo systemctl enable openvpn@server

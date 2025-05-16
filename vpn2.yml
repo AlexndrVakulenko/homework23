@@ -1,0 +1,16 @@
+---
+- name: Creating RAS
+
+  hosts: all
+  become: true
+
+  tasks:
+
+  - name: Install soft
+    apt:
+      name:
+        - openvpn
+        - easy-rsa
+        - mc
+      state: present
+      update_cache: true
