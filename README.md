@@ -25,8 +25,11 @@
 
 2. Поднять RAS на базе OpenVPN с клиентскими сертификатами, подключиться с локальной машины на ВМ
 
-        Задание выполнялось на том же стенде с Vagrantfile. Ansible workbook vpn2.yml устанавливает необходимый софт на vm.
-        Передаваемыйе файлы с сервера на клиент - в папке VPN_files/2
+ Задание выполнялось на том же стенде с Vagrantfile. Ansible workbook vpn2.yml устанавливает необходимый софт на vm.
+ 
+ Передаваемыйе файлы с сервера на клиент - в папке VPN_files/2
+
+
 
         Настройка сервера:
    
@@ -40,12 +43,14 @@
 
    ![Image alt](https://github.com/AlexndrVakulenko/homework23/blob/main/09_RAS_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B05.png)
 
+
          Настройка клиента:
 
   ![Image alt]( https://github.com/AlexndrVakulenko/homework23/blob/main/10_RAS_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B02.png)
 
 
 Подключение с помощью: ***openvpn --config client.conf***
+
 
   ![Image alt]( https://github.com/AlexndrVakulenko/homework23/blob/main/11_RAS_%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F_openVPN.png)
 
